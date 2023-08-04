@@ -1,0 +1,25 @@
+--View Total Table
+SELECT * from credit_cards
+
+
+-- What is the total amount spent by everyone?
+select sum(amount) from credit_cards
+
+
+-- Which city has the Highest total expenditure --> Greater Mumbai
+select city, sum(amount) as Total_Expenditure from credit_cards GROUP by city order by sum(amount) desc;
+
+
+-- Which city has the Lowest Total expenditure 
+select city, sum(amount) as Total_Expenditure from credit_cards group by city order by sum(amount);
+
+-- Which city has the Highest average expenditure
+select city, avg(amount) as Avg_Expenditure from credit_cards group by city order by avg(amount) desc;
+
+--Which city hase the Lowest average expenditure
+
+select city, avg(amount) as Avg_Expenditure from credit_cards group by city order by avg(amount);
+
+--The card type “Platinum” was used for which “Exp Type” the most?
+
+select `Exp Type`, count(*) from credit_cards where `card type` = 'Platinum' group by `card type` order by count(*) desc;
